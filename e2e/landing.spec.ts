@@ -161,10 +161,16 @@ test.describe("motion", () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/en");
     await expect(title.locator("xpath=..")).toHaveCSS("animation-name", "none");
-    await expect(page.locator("main svg path").first()).toHaveCSS(
-      "animation-name",
-      "none",
-    );
+  });
+});
+
+test.describe("brand mark", () => {
+  test("appears in the header and footer only", async ({ page }) => {
+    await page.goto("/en");
+    await expect(page.locator("svg")).toHaveCount(2);
+    await expect(page.getByRole("banner").locator("svg")).toHaveCount(1);
+    await expect(page.getByRole("contentinfo").locator("svg")).toHaveCount(1);
+    await expect(page.locator("main svg")).toHaveCount(0);
   });
 });
 

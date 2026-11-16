@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { brandMarkPath } from "@/lib/brand-mark";
 
-/** The mark alone, sized by the caller and coloured by `currentColor`. */
-export function BrandGlyph({ className }: { className?: string }) {
+function BrandGlyph({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" aria-hidden="true" className={className}>
       <path fill="currentColor" fillRule="evenodd" d={brandMarkPath} />
