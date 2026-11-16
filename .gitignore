@@ -23,5 +23,19 @@ __pycache__/
 .venv/
 target/
 
+# Next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Test and tooling output
+coverage/
+playwright-report/
+test-results/
+
+# Vercel
+.vercel/
+
 # Agent worktrees
 .claude/worktrees/

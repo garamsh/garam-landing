@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: read-all
+
+jobs:
+  check:
+    # Mover: bump when GitHub retires ubuntu-24.04; it last resolved to the
+    # Ubuntu 24.04 image.
+    runs-on: ubuntu-24.04
+    steps:
+      # The action SHAs below and the npm pins in package.json are moved by
+      # Dependabot (.github/dependabot.yml, weekly).
+      # actions/checkout v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      # pnpm/action-setup v6.1.1; the pnpm version comes from packageManager
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115
+      # actions/setup-node v7.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm check

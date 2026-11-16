@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f1e8;
+  --surface: #fbf9f3;
+  --ink: #10282d;
+  --muted: #4a5d61;
+  --line: #d9d2c1;
+  --action: #0f6b6f;
+  --on-action: #ffffff;
+  --warm: #b8381d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0c1d21;
+    --surface: #12292e;
+    --ink: #ede9de;
+    --muted: #a9b8b8;
+    --line: #27434a;
+    --action: #5cc6c0;
+    --on-action: #0c1d21;
+    --warm: #ff8a6b;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-action: var(--action);
+  --color-on-action: var(--on-action);
+  --color-warm: var(--warm);
+}
+
+/* Not inline: the utilities must read the variable so the lang(ko) override
+   below takes effect. */
+@theme {
+  --font-display: var(--font-fraunces), var(--font-noto-sans-kr), serif;
+  --font-sans: var(--font-noto-sans-kr), system-ui, sans-serif;
+}
+
+/* Fraunces has no Hangul, so Korean headings use the text face. Korean also
+   breaks between words, not syllables, which keeps narrow lines readable. */
+:root:lang(ko) {
+  --font-display: var(--font-noto-sans-kr), system-ui, sans-serif;
+  word-break: keep-all;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .braid-strand {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: braid-draw 1.6s ease-out forwards;
+  }
+
+  .braid-strand:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+}
+
+@keyframes braid-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
