@@ -49,10 +49,6 @@
   word-break: keep-all;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -62,12 +58,6 @@ body {
 :focus-visible {
   outline: 3px solid var(--action);
   outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

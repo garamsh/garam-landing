@@ -19,7 +19,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${displayFont.variable} ${textFont.variable}`}
+      className={`${displayFont.variable} ${textFont.variable} scroll-smooth motion-reduce:scroll-auto`}
     >
       <body>{children}</body>
     </html>
