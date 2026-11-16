@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { env } from "@/env";
 import {
   getDictionary,
-  getLocaleName,
   getOgLocale,
   localeCodes,
   type Locale,

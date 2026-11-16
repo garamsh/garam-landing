@@ -14,8 +14,9 @@
     "format": "prettier --check .",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "build": "next build",
-    "check": "pnpm lint && pnpm format && pnpm typecheck && pnpm test && pnpm build"
+    "check": "pnpm lint && pnpm format && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -23,6 +24,7 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.1",
     "@tailwindcss/postcss": "4.3.5",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",

@@ -9,10 +9,7 @@ export function Follow({ copy }: { copy: Dictionary["follow"] }) {
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 px-6 py-16 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2
-            id="follow-title"
-            className="font-display text-3xl font-semibold"
-          >
+          <h2 id="follow-title" className="font-display text-3xl font-semibold">
             {copy.title}
           </h2>
           <p className="mt-3 max-w-xl text-muted">{copy.body}</p>

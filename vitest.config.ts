@@ -10,5 +10,8 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["src/**/__tests__/*.test.ts"],
+    // An empty value means unset to `src/env.ts`, so a developer's shell
+    // setting cannot change the expected URLs.
+    env: { NEXT_PUBLIC_SITE_URL: "" },
   },
 });

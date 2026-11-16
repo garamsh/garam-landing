@@ -33,13 +33,20 @@
   --color-action: var(--action);
   --color-on-action: var(--on-action);
   --color-warm: var(--warm);
+}
+
+/* Not inline: the utilities must read the variable so the lang(ko) override
+   below takes effect. */
+@theme {
   --font-display: var(--font-fraunces), var(--font-noto-sans-kr), serif;
   --font-sans: var(--font-noto-sans-kr), system-ui, sans-serif;
 }
 
-/* Fraunces has no Hangul, so Korean headings use the text face. */
+/* Fraunces has no Hangul, so Korean headings use the text face. Korean also
+   breaks between words, not syllables, which keeps narrow lines readable. */
 :root:lang(ko) {
   --font-display: var(--font-noto-sans-kr), system-ui, sans-serif;
+  word-break: keep-all;
 }
 
 html {

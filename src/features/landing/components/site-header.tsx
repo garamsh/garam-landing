@@ -19,7 +19,6 @@ export function SiteHeader({ locale, labels }: SiteHeaderProps) {
     <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
       <Link
         href={localePath(locale)}
-        aria-label={labels.homeLink}
         className="flex items-center gap-3 rounded-md"
       >
         <BraidMark className="size-9" />

@@ -11,7 +11,6 @@ export interface Dictionary {
   a11y: {
     skipToContent: string;
     languageSwitcher: string;
-    homeLink: string;
   };
   hero: {
     eyebrow: string;

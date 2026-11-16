@@ -52,8 +52,20 @@ describe("negotiateLocale", () => {
   });
 
   it("prefers the higher quality value", () => {
-    expect(negotiateLocale("ko;q=0.4,en;q=0.9")).toBe("en");
+    expect(negotiateLocale("fr,en;q=0.2,ko;q=0.8")).toBe("ko");
     expect(negotiateLocale("en;q=0.2,ko;q=0.8")).toBe("ko");
+    expect(negotiateLocale("ko;q=0.8,en;q=0.9")).toBe("en");
+  });
+
+  it("matches regional and upper-case tags", () => {
+    expect(negotiateLocale("en-GB")).toBe("en");
+    expect(negotiateLocale("KO-kr")).toBe("ko");
+    expect(negotiateLocale("fr;q=0.9,KO-kr;q=0.5")).toBe("ko");
+  });
+
+  it("falls back for a wildcard or an empty header", () => {
+    expect(negotiateLocale("*")).toBe(defaultLocale);
+    expect(negotiateLocale("")).toBe(defaultLocale);
   });
 
   it("ignores unsupported languages and q=0", () => {

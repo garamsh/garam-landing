@@ -13,6 +13,8 @@ What the landing page contains and how it is built. The code is `src/features/la
 - Type is Fraunces for English headings and Noto Sans KR for body text and Korean headings, loaded with `next/font`.
 - The hero mark is a decorative inline SVG hidden from assistive technology. Its draw-in animation runs only when the visitor has not asked for reduced motion.
 - Accessibility baseline: a skip link, visible focus rings, controls at least 44 pixels high, and text and background colour pairs chosen to target AA contrast in both schemes.
+- Korean text breaks between words, not syllables, through `word-break: keep-all` under `:lang(ko)`.
+- A Playwright spec in `e2e/` runs against the built app and covers the root redirect, both locale pages, 404 for unknown paths, the sitemap and robots.txt.
 - The feature imports `src/features/i18n` through its index and `src/lib/company.ts`. It does not import the seo feature.
 
 ## Rationale
@@ -22,5 +24,4 @@ What the landing page contains and how it is built. The code is `src/features/la
 
 ## Open questions
 
-- There is no end-to-end test; adding one needs a browser install in CI.
 - Text and background contrast has not been measured with a tool in either scheme.
