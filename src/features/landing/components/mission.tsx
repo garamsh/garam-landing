@@ -6,7 +6,7 @@ export function Mission({ copy }: { copy: Dictionary["mission"] }) {
     <section
       id="mission"
       aria-labelledby="mission-title"
-      className="ink relative scroll-mt-20 overflow-hidden"
+      className="ink relative scroll-mt-20 overflow-hidden border-y border-foreground/15"
     >
       <div
         aria-hidden="true"

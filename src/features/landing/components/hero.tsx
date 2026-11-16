@@ -3,7 +3,8 @@ import type { Dictionary } from "@/features/i18n";
 import { brandMarkPath } from "@/lib/brand-mark";
 
 // Two outlines of the mark's plate sit behind it, offset toward the upper
-// right, and settle into place once on load.
+// right, and settle into place once on load. A plate in the page background
+// sits between them and the mark so the glyph's hole reads as one clean shape.
 const echoes = [
   { x: 16, y: -16, opacity: 0.35, delay: "0ms" },
   { x: 8, y: -8, opacity: 0.6, delay: "120ms" },
@@ -60,6 +61,15 @@ export function Hero({ copy }: { copy: Dictionary["hero"] }) {
                 className="motion-safe:animate-plate"
               />
             ))}
+            <rect
+              x="1"
+              y="1"
+              width="98"
+              height="98"
+              rx="3"
+              fill="var(--color-background)"
+              className="motion-safe:animate-rise"
+            />
             <path
               d={brandMarkPath}
               fill="currentColor"
