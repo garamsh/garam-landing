@@ -6,43 +6,57 @@ import {
   type Dictionary,
   type Locale,
 } from "@/features/i18n";
-import { company } from "@/lib/company";
-import { BraidMark } from "./braid-mark";
+import { BrandMark } from "./brand-mark";
 
 interface SiteHeaderProps {
   locale: Locale;
   labels: Dictionary["a11y"];
+  nav: Dictionary["nav"];
 }
 
-export function SiteHeader({ locale, labels }: SiteHeaderProps) {
+const linkClass =
+  "inline-flex min-h-11 items-center rounded-md px-3 text-sm text-muted-foreground transition-colors hover:text-foreground";
+
+export function SiteHeader({ locale, labels, nav }: SiteHeaderProps) {
+  const sections = [
+    { id: "mission", label: nav.mission },
+    { id: "approach", label: nav.approach },
+    { id: "company", label: nav.company },
+  ];
+
   return (
-    <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
-      <Link
-        href={localePath(locale)}
-        className="flex items-center gap-3 rounded-md"
-      >
-        <BraidMark className="size-9" />
-        <span className="font-display text-2xl font-semibold tracking-tight">
-          {company.name}
-        </span>
-      </Link>
-      <nav aria-label={labels.languageSwitcher}>
-        <ul className="flex items-center gap-1">
-          {localeCodes.map((code) => (
-            <li key={code}>
-              <Link
-                href={localePath(code)}
-                lang={code}
-                hrefLang={code}
-                aria-current={code === locale ? "page" : undefined}
-                className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted underline-offset-4 hover:text-ink aria-[current=page]:text-ink aria-[current=page]:underline"
-              >
-                {getLocaleName(code)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <header className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-content items-center gap-6 px-6 py-2">
+        <BrandMark href={localePath(locale)} />
+        <nav aria-label={labels.sections} className="hidden md:block">
+          <ul className="flex items-center gap-3">
+            {sections.map((section) => (
+              <li key={section.id}>
+                <a href={`#${section.id}`} className={linkClass}>
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label={labels.languageSwitcher} className="ml-auto">
+          <ul className="flex items-center gap-1">
+            {localeCodes.map((code) => (
+              <li key={code}>
+                <Link
+                  href={localePath(code)}
+                  lang={code}
+                  hrefLang={code}
+                  aria-current={code === locale ? "page" : undefined}
+                  className={`${linkClass} aria-[current=page]:bg-muted aria-[current=page]:font-medium aria-[current=page]:text-foreground`}
+                >
+                  {getLocaleName(code)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }

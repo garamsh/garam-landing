@@ -26,9 +26,9 @@ describe("localePath", () => {
 describe("dictionaries", () => {
   it("keep the same list lengths in every locale", () => {
     const dictionaries = localeCodes.map(getDictionary);
-    const beliefs = dictionaries.map((d) => d.beliefs.items.length);
+    const mission = dictionaries.map((d) => d.mission.items.length);
     const approach = dictionaries.map((d) => d.approach.items.length);
-    expect(new Set(beliefs).size).toBe(1);
+    expect(new Set(mission).size).toBe(1);
     expect(new Set(approach).size).toBe(1);
   });
 

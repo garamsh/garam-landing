@@ -9,15 +9,30 @@ export const en: Dictionary = {
   a11y: {
     skipToContent: "Skip to content",
     languageSwitcher: "Language",
+    sections: "Sections",
+  },
+  nav: {
+    mission: "Mission",
+    approach: "How we work",
+    company: "Company",
   },
   hero: {
-    eyebrow: "An early-stage company",
+    eyebrow: "People and AI agents",
     title: "People and AI agents, working side by side.",
     lead: "Garam is building how people and AI agents work together: clear intent from people, steady work from agents, and trust that grows with every step they share.",
-    primaryCta: "Follow us on GitHub",
-    secondaryCta: "How we think",
+    cta: "How we work",
+    people: {
+      title: "People",
+      body: "Set the direction, make the judgment calls and stay accountable for the outcome.",
+    },
+    agents: {
+      title: "AI agents",
+      body: "Take the steady, repeatable work and share the load.",
+    },
+    caption: "Trust grows with every step they share.",
   },
-  beliefs: {
+  mission: {
+    eyebrow: "Mission",
     title: "What we believe",
     items: [
       {
@@ -35,7 +50,8 @@ export const en: Dictionary = {
     ],
   },
   approach: {
-    title: "How we go about it",
+    eyebrow: "How we work",
+    title: "How we work with AI agents",
     intro: "We are at the beginning, so we start from questions, not answers.",
     items: [
       {
@@ -52,18 +68,16 @@ export const en: Dictionary = {
       },
     ],
   },
-  nameNote: {
+  company: {
+    eyebrow: "Company",
     title: "About the name",
     body: "Garam (가람) is a native Korean word for a river: many streams, one direction.",
-  },
-  follow: {
-    title: "Follow along",
-    body: "Our GitHub organization is the best place to watch the work take shape.",
-    cta: "Garam on GitHub",
+    detailsTitle: "Business details",
   },
   footer: {
     tradeNameLabel: "Trade name",
     representativeLabel: "Representative",
     registrationNumberLabel: "Business registration no.",
+    githubLabel: "GitHub",
   },
 };
