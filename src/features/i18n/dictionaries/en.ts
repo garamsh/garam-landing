@@ -14,13 +14,11 @@ export const en: Dictionary = {
   nav: {
     mission: "Mission",
     approach: "How we work",
-    company: "Company",
   },
   hero: {
     eyebrow: "People and AI agents",
     title: "People and AI agents, working side by side.",
     lead: "Garam is building how people and AI agents work together: clear intent from people, steady work from agents, and trust that grows with every step they share.",
-    cta: "How we work",
   },
   mission: {
     eyebrow: "Mission",
@@ -59,10 +57,8 @@ export const en: Dictionary = {
       },
     ],
   },
-  company: {
-    eyebrow: "Company",
-    title: "About the name",
-    body: "Garam (가람) is a native Korean word for a river: many streams, one direction.",
+  closing: {
+    title: "Trust grows with every step we share.",
   },
   footer: {
     tradeNameLabel: "Trade name",

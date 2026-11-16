@@ -1,3 +1,4 @@
+import { GeistMono } from "geist/font/mono";
 import { notFound } from "next/navigation";
 import { isLocale, localeCodes } from "@/features/i18n";
 // Pretendard's dynamic-subset build binds each file to a unicode-range, which
@@ -22,7 +23,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className="scroll-smooth antialiased motion-reduce:scroll-auto"
+      className={`${GeistMono.variable} scroll-smooth antialiased motion-reduce:scroll-auto`}
     >
       <body className="flex min-h-screen flex-col">{children}</body>
     </html>

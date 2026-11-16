@@ -21,7 +21,6 @@ export function SiteHeader({ locale, labels, nav }: SiteHeaderProps) {
   const sections = [
     { id: "mission", label: nav.mission },
     { id: "approach", label: nav.approach },
-    { id: "company", label: nav.company },
   ];
 
   return (

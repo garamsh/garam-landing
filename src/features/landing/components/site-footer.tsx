@@ -22,7 +22,7 @@ export function SiteFooter({ locale, labels }: SiteFooterProps) {
   ];
 
   return (
-    <footer>
+    <footer className="border-t border-border">
       <div className="mx-auto flex w-full max-w-content flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between">
         <BrandMark href={localePath(locale)} className="self-start" />
         <div className="flex flex-col gap-3 text-sm text-muted-foreground md:items-end">
