@@ -1,6 +1,6 @@
 import { getDictionary, type Locale } from "@/features/i18n";
 import { Approach } from "./approach";
-import { CompanySection } from "./company-section";
+import { Closing } from "./closing";
 import { Hero } from "./hero";
 import { Mission } from "./mission";
 import { SiteFooter } from "./site-footer";
@@ -26,7 +26,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         <Hero copy={dictionary.hero} />
         <Mission copy={dictionary.mission} />
         <Approach copy={dictionary.approach} />
-        <CompanySection copy={dictionary.company} />
+        <Closing copy={dictionary.closing} />
       </main>
       <SiteFooter locale={locale} labels={dictionary.footer} />
     </>

@@ -13,6 +13,8 @@
   --border: oklch(0.92 0.004 260);
   --brand: oklch(0.55 0.19 264);
   --brand-foreground: oklch(0.99 0.003 264);
+  --surface-highlight: oklch(1 0 0 / 80%);
+  --surface-shadow: oklch(0.3 0.04 264 / 10%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +27,8 @@
     --border: oklch(1 0 0 / 9%);
     --brand: oklch(0.68 0.16 264);
     --brand-foreground: oklch(0.17 0.02 264);
+    --surface-highlight: oklch(1 0 0 / 6%);
+    --surface-shadow: oklch(0 0 0 / 45%);
   }
 }
 
@@ -42,37 +46,87 @@
   --font-sans:
     "Pretendard Variable", system-ui, -apple-system, "Apple SD Gothic Neo",
     "Noto Sans KR", sans-serif;
-  --text-display: clamp(2.375rem, 1.85rem + 2.2vw, 3.5rem);
-  --text-display--line-height: 1.08;
-  --text-display--letter-spacing: -0.035em;
-  --text-title: clamp(1.75rem, 1.4rem + 1.3vw, 2.375rem);
-  --text-title--line-height: 1.15;
-  --text-title--letter-spacing: -0.025em;
-  --text-lead: 1.0625rem;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --text-display: clamp(2.75rem, 1.6rem + 4.8vw, 5rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.045em;
+  --text-title: clamp(2rem, 1.3rem + 2.4vw, 3.25rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.035em;
+  --text-statement: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+  --text-statement--line-height: 1.2;
+  --text-statement--letter-spacing: -0.03em;
+  --text-lead: 1.125rem;
   --text-lead--line-height: 1.65;
-  --spacing-section: 6rem;
+  --text-eyebrow: 0.875rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.01em;
+  --spacing-section: 8rem;
   --container-content: 75rem;
   --radius-lg: 0.375rem;
   --radius-xl: 0.625rem;
   --radius-2xl: 0.75rem;
 }
 
-/* Not inline: the utility must read the variable so the lang(ko) override
-   below takes effect. */
-@theme {
-  --text-eyebrow: 0.75rem;
-  --text-eyebrow--line-height: 1.2;
-  --text-eyebrow--letter-spacing: 0.16em;
-}
-
-/* The hero backdrop: a ruled plane in the border token, faded out from the
-   top so the type stays the only thing with contrast. */
+/* The hero backdrop: a ruled plane in the border token, faded out toward
+   the edges so the type stays the only thing with contrast. */
 @utility ruled-plane {
   background-image:
     linear-gradient(to right, var(--color-border) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
   background-size: 4rem 4rem;
-  mask-image: linear-gradient(to bottom, rgb(0 0 0 / 0.85), transparent 65%);
+  mask-image: radial-gradient(
+    ellipse 70% 80% at 70% 30%,
+    rgb(0 0 0 / 0.9),
+    transparent
+  );
+}
+
+/* A surface inside a section: a hairline highlight on the top edge and a
+   soft layered shadow, both from the scheme's own values. */
+@utility surface {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    inset 0 1px 0 var(--surface-highlight),
+    0 1px 2px var(--surface-shadow),
+    0 16px 32px -20px var(--surface-shadow);
+}
+
+/* The brand's dark ink, in both schemes: the dark tokens redeclared for
+   everything inside, a step deeper than the page when the page is dark. */
+@utility ink {
+  --background: oklch(0.17 0.005 260);
+  --foreground: oklch(0.96 0.003 260);
+  --card: oklch(0.2 0.006 260);
+  --muted: oklch(0.25 0.006 260);
+  --muted-foreground: oklch(0.72 0.01 260);
+  --border: oklch(1 0 0 / 9%);
+  --brand: oklch(0.68 0.16 264);
+  --brand-foreground: oklch(0.17 0.02 264);
+  color-scheme: dark;
+  background: var(--background);
+  color: var(--foreground);
+  @media (prefers-color-scheme: dark) {
+    --background: oklch(0.13 0.005 260);
+  }
+}
+
+@theme {
+  --animate-rise: rise 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-plate: plate 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+  @keyframes plate {
+    from {
+      opacity: 0;
+      transform: translate(0, 0);
+    }
+  }
 }
 
 body {
@@ -97,10 +151,4 @@ h3 {
    readable. */
 :lang(ko) {
   word-break: keep-all;
-}
-
-/* Wide tracking pulls Hangul syllables apart; Korean eyebrows keep it tight. */
-:root:lang(ko) {
-  --text-eyebrow: 0.8125rem;
-  --text-eyebrow--letter-spacing: 0.02em;
 }

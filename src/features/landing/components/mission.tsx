@@ -6,24 +6,28 @@ export function Mission({ copy }: { copy: Dictionary["mission"] }) {
     <section
       id="mission"
       aria-labelledby="mission-title"
-      className="scroll-mt-20 border-b border-border"
+      className="ink relative scroll-mt-20 overflow-hidden"
     >
-      <div className="mx-auto grid w-full max-w-content gap-10 px-6 py-16 lg:grid-cols-12 lg:gap-16 lg:py-section">
-        <div className="lg:col-span-4">
-          <SectionHeading
-            id="mission-title"
-            eyebrow={copy.eyebrow}
-            title={copy.title}
-          />
-        </div>
-        <ul className="divide-y divide-border border-y border-border lg:col-span-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-1/3 -right-1/4 size-[60rem] bg-[radial-gradient(closest-side,color-mix(in_oklab,var(--color-brand)_20%,transparent),transparent)]"
+      />
+      <div className="relative mx-auto w-full max-w-content px-6 py-20 lg:py-section">
+        <SectionHeading
+          id="mission-title"
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+        />
+        <ul className="mt-14 border-t border-border lg:mt-20">
           {copy.items.map((item) => (
             <li
               key={item.title}
-              className="flex flex-col gap-2 py-8 first:pt-6 last:pb-6"
+              className="grid gap-4 border-b border-border py-10 lg:grid-cols-12 lg:gap-8 lg:py-14"
             >
-              <h3 className="text-title text-balance">{item.title}</h3>
-              <p className="max-w-2xl text-lead text-pretty text-muted-foreground">
+              <h3 className="text-statement text-balance lg:col-span-7">
+                {item.title}
+              </h3>
+              <p className="text-lead text-pretty text-muted-foreground lg:col-span-5 lg:pt-1.5">
                 {item.body}
               </p>
             </li>

@@ -16,13 +16,11 @@ export interface Dictionary {
   nav: {
     mission: string;
     approach: string;
-    company: string;
   };
   hero: {
     eyebrow: string;
     title: string;
     lead: string;
-    cta: string;
   };
   mission: {
     eyebrow: string;
@@ -35,10 +33,8 @@ export interface Dictionary {
     intro: string;
     items: readonly DictionaryItem[];
   };
-  company: {
-    eyebrow: string;
+  closing: {
     title: string;
-    body: string;
   };
   footer: {
     tradeNameLabel: string;

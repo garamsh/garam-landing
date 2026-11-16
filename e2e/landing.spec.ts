@@ -73,9 +73,21 @@ test.describe("corporate page", () => {
     }) => {
       await page.goto(`/${locale}`);
 
-      for (const id of ["mission", "approach", "company"]) {
+      for (const id of ["mission", "approach"]) {
         await expect(page.locator(`main section#${id}`)).toBeVisible();
       }
+
+      // The page closes with a statement, then the footer.
+      await expect(
+        page.locator("main section").last().getByRole("heading", { level: 2 }),
+      ).toBeVisible();
+
+      // The name section is gone: no section, nav link or text about the name.
+      await expect(page.locator("#company")).toHaveCount(0);
+      await expect(page.locator('a[href="#company"]')).toHaveCount(0);
+      await expect(page.getByText(/about the name|이름에 대하여/i)).toHaveCount(
+        0,
+      );
 
       // The organization profile appears once, as a footer link, and
       // nowhere else on the page.
@@ -109,10 +121,8 @@ test.describe("keyboard", () => {
       "/en",
       "#mission",
       "#approach",
-      "#company",
       "/en",
       "/ko",
-      "#approach",
       "/en",
       "https://github.com/garamsh",
     ];
@@ -133,6 +143,28 @@ test.describe("keyboard", () => {
     await expect(page.locator(":focus")).toHaveText("본문으로 건너뛰기");
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#main$/);
+  });
+});
+
+test.describe("motion", () => {
+  test("the hero rises once on load and holds still under reduced motion", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.goto("/en");
+    const title = page.getByRole("heading", { level: 1 });
+    await expect(title.locator("xpath=..")).not.toHaveCSS(
+      "animation-name",
+      "none",
+    );
+
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/en");
+    await expect(title.locator("xpath=..")).toHaveCSS("animation-name", "none");
+    await expect(page.locator("main svg path").first()).toHaveCSS(
+      "animation-name",
+      "none",
+    );
   });
 });
 
