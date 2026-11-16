@@ -21,15 +21,6 @@ export const en: Dictionary = {
     title: "People and AI agents, working side by side.",
     lead: "Garam is building how people and AI agents work together: clear intent from people, steady work from agents, and trust that grows with every step they share.",
     cta: "How we work",
-    people: {
-      title: "People",
-      body: "Set the direction, make the judgment calls and stay accountable for the outcome.",
-    },
-    agents: {
-      title: "AI agents",
-      body: "Take the steady, repeatable work and share the load.",
-    },
-    caption: "Trust grows with every step they share.",
   },
   mission: {
     eyebrow: "Mission",
@@ -72,7 +63,6 @@ export const en: Dictionary = {
     eyebrow: "Company",
     title: "About the name",
     body: "Garam (가람) is a native Korean word for a river: many streams, one direction.",
-    detailsTitle: "Business details",
   },
   footer: {
     tradeNameLabel: "Trade name",

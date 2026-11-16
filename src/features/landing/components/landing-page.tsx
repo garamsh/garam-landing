@@ -26,7 +26,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         <Hero copy={dictionary.hero} />
         <Mission copy={dictionary.mission} />
         <Approach copy={dictionary.approach} />
-        <CompanySection copy={dictionary.company} labels={dictionary.footer} />
+        <CompanySection copy={dictionary.company} />
       </main>
       <SiteFooter locale={locale} labels={dictionary.footer} />
     </>

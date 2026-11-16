@@ -101,5 +101,6 @@ h3 {
 
 /* Wide tracking pulls Hangul syllables apart; Korean eyebrows keep it tight. */
 :root:lang(ko) {
+  --text-eyebrow: 0.8125rem;
   --text-eyebrow--letter-spacing: 0.02em;
 }

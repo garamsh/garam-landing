@@ -23,9 +23,6 @@ export interface Dictionary {
     title: string;
     lead: string;
     cta: string;
-    people: DictionaryItem;
-    agents: DictionaryItem;
-    caption: string;
   };
   mission: {
     eyebrow: string;
@@ -42,7 +39,6 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     body: string;
-    detailsTitle: string;
   };
   footer: {
     tradeNameLabel: string;

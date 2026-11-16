@@ -2,15 +2,13 @@ import type { Dictionary } from "@/features/i18n";
 import { BrandGlyph } from "./brand-mark";
 
 export function Hero({ copy }: { copy: Dictionary["hero"] }) {
-  const roles = [copy.people, copy.agents];
-
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div
         aria-hidden="true"
         className="ruled-plane pointer-events-none absolute inset-0"
       />
-      <div className="relative mx-auto grid w-full max-w-content gap-14 px-6 pt-16 pb-16 lg:pb-section lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:pt-28">
+      <div className="relative mx-auto grid w-full max-w-content gap-14 px-6 pt-16 pb-16 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:pt-28 lg:pb-section">
         <div className="flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1 text-eyebrow font-medium text-muted-foreground uppercase">
             <span
@@ -30,22 +28,13 @@ export function Hero({ copy }: { copy: Dictionary["hero"] }) {
             {copy.cta}
           </a>
         </div>
-        <figure className="overflow-hidden rounded-xl border border-border bg-card">
-          <ul className="divide-y divide-border">
-            {roles.map((role) => (
-              <li key={role.title} className="flex flex-col gap-2 px-6 py-6">
-                <span className="text-eyebrow font-medium text-brand uppercase">
-                  {role.title}
-                </span>
-                <p className="text-pretty">{role.body}</p>
-              </li>
-            ))}
-          </ul>
-          <figcaption className="flex items-center justify-between gap-4 border-t border-border bg-muted px-6 py-4 text-sm text-muted-foreground">
-            <span className="text-pretty">{copy.caption}</span>
-            <BrandGlyph className="size-6 shrink-0 text-brand" />
-          </figcaption>
-        </figure>
+        <div
+          aria-hidden="true"
+          className="relative hidden aspect-square w-full max-w-md items-center justify-center justify-self-end overflow-hidden rounded-xl border border-border bg-card lg:flex"
+        >
+          <div className="ruled-plane absolute inset-0" />
+          <BrandGlyph className="relative size-40 text-brand" />
+        </div>
       </div>
     </section>
   );

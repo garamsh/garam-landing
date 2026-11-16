@@ -21,15 +21,6 @@ export const ko: Dictionary = {
     title: "사람과 AI 에이전트가 나란히 일합니다.",
     lead: "가람은 사람과 AI 에이전트가 함께 일하는 방식을 만듭니다. 방향은 사람이 정하고, 꾸준한 일은 에이전트가 맡고, 신뢰는 일을 나눌 때마다 쌓여 갑니다.",
     cta: "일하는 방식 보기",
-    people: {
-      title: "사람",
-      body: "방향을 정하고, 판단을 내리고, 결과에 책임을 집니다.",
-    },
-    agents: {
-      title: "AI 에이전트",
-      body: "반복적이고 꾸준함이 필요한 일을 맡아 부담을 나눕니다.",
-    },
-    caption: "신뢰는 일을 나눌 때마다 쌓여 갑니다.",
   },
   mission: {
     eyebrow: "미션",
@@ -72,7 +63,6 @@ export const ko: Dictionary = {
     eyebrow: "회사",
     title: "이름에 대하여",
     body: "가람(Garam)은 ‘강’을 뜻하는 순우리말입니다. 여러 갈래의 물이 한 방향으로 흐릅니다.",
-    detailsTitle: "사업자 정보",
   },
   footer: {
     tradeNameLabel: "상호",

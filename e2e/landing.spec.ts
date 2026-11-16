@@ -85,6 +85,12 @@ test.describe("corporate page", () => {
         page.getByRole("contentinfo").locator('a[href^="https://github.com"]'),
       ).toHaveCount(1);
 
+      // The business details are stated once, in the footer.
+      await expect(page.getByText("605-37-70404")).toHaveCount(1);
+      await expect(
+        page.getByRole("contentinfo").getByText("605-37-70404"),
+      ).toHaveCount(1);
+
       // No contact details: no email or phone links.
       await expect(
         page.locator('a[href^="mailto:"], a[href^="tel:"]'),
