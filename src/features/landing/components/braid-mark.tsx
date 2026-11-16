@@ -1,3 +1,5 @@
+import { braidStrandPaths } from "@/lib/braid-mark";
+
 interface BraidMarkProps {
   className?: string;
   /** Plays the draw-in animation; the hero uses it, the header does not. */
@@ -18,7 +20,7 @@ export function BraidMark({ className, animated = false }: BraidMarkProps) {
       <path
         className={strand}
         pathLength="1"
-        d="M6 20C24 20 28 44 58 44"
+        d={braidStrandPaths.ink}
         stroke="var(--ink)"
         strokeWidth="5"
         strokeLinecap="round"
@@ -26,7 +28,7 @@ export function BraidMark({ className, animated = false }: BraidMarkProps) {
       <path
         className={strand}
         pathLength="1"
-        d="M6 44C24 44 28 20 58 20"
+        d={braidStrandPaths.warm}
         stroke="var(--warm)"
         strokeWidth="5"
         strokeLinecap="round"
