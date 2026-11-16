@@ -11,35 +11,39 @@ export interface Dictionary {
   a11y: {
     skipToContent: string;
     languageSwitcher: string;
+    sections: string;
+  };
+  nav: {
+    mission: string;
+    approach: string;
+    company: string;
   };
   hero: {
     eyebrow: string;
     title: string;
     lead: string;
-    primaryCta: string;
-    secondaryCta: string;
+    cta: string;
   };
-  beliefs: {
+  mission: {
+    eyebrow: string;
     title: string;
     items: readonly DictionaryItem[];
   };
   approach: {
+    eyebrow: string;
     title: string;
     intro: string;
     items: readonly DictionaryItem[];
   };
-  nameNote: {
+  company: {
+    eyebrow: string;
     title: string;
     body: string;
-  };
-  follow: {
-    title: string;
-    body: string;
-    cta: string;
   };
   footer: {
     tradeNameLabel: string;
     representativeLabel: string;
     registrationNumberLabel: string;
+    githubLabel: string;
   };
 }

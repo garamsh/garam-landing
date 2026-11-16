@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { isLocale, localeCodes } from "@/features/i18n";
-import { displayFont, textFont } from "@/lib/fonts";
+// Pretendard's dynamic-subset build binds each file to a unicode-range, which
+// next/font/local cannot express, so the package stylesheet is imported and
+// the bundler self-hosts the files it names.
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "@/styles/globals.css";
 
 export const dynamicParams = false;
@@ -19,9 +22,9 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${displayFont.variable} ${textFont.variable} scroll-smooth motion-reduce:scroll-auto`}
+      className="scroll-smooth antialiased motion-reduce:scroll-auto"
     >
-      <body>{children}</body>
+      <body className="flex min-h-screen flex-col">{children}</body>
     </html>
   );
 }
