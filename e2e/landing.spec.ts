@@ -90,6 +90,9 @@ test.describe("corporate page", () => {
       );
 
       // The page does not point to the organization's GitHub.
+      // The control: the same attribute selector does match the three links
+      // to this locale's home (header mark, language switcher, footer mark).
+      await expect(page.locator(`a[href="/${locale}"]`)).toHaveCount(3);
       await expect(page.locator('a[href*="github.com"]')).toHaveCount(0);
 
       // The business details are stated once, in the footer.
