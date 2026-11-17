@@ -40,6 +40,5 @@ export interface Dictionary {
     tradeNameLabel: string;
     representativeLabel: string;
     registrationNumberLabel: string;
-    githubLabel: string;
   };
 }

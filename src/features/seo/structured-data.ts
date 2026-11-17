@@ -10,7 +10,6 @@ export function organizationJsonLd() {
     alternateName: company.localName,
     url: env.siteUrl,
     logo: absoluteUrl("/logo.svg"),
-    sameAs: [company.githubUrl],
   };
 }
 

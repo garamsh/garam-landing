@@ -64,6 +64,5 @@ export const en: Dictionary = {
     tradeNameLabel: "Trade name",
     representativeLabel: "Representative",
     registrationNumberLabel: "Business registration no.",
-    githubLabel: "GitHub",
   },
 };

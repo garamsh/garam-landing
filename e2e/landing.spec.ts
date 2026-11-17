@@ -89,13 +89,8 @@ test.describe("corporate page", () => {
         0,
       );
 
-      // The organization profile appears once, as a footer link, and
-      // nowhere else on the page.
-      const profile = page.locator('a[href="https://github.com/garamsh"]');
-      await expect(profile).toHaveCount(1);
-      await expect(
-        page.getByRole("contentinfo").locator('a[href^="https://github.com"]'),
-      ).toHaveCount(1);
+      // The page does not point to the organization's GitHub.
+      await expect(page.locator('a[href*="github.com"]')).toHaveCount(0);
 
       // The business details are stated once, in the footer.
       await expect(page.getByText("605-37-70404")).toHaveCount(1);
@@ -124,7 +119,6 @@ test.describe("keyboard", () => {
       "/en",
       "/ko",
       "/en",
-      "https://github.com/garamsh",
     ];
 
     for (const href of expected) {

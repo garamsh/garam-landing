@@ -23,7 +23,7 @@ export function SiteFooter({ locale, labels }: SiteFooterProps) {
 
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex w-full max-w-content flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between">
+      <div className="mx-auto flex w-full max-w-content flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
         <BrandMark href={localePath(locale)} className="self-start" />
         <div className="flex flex-col gap-3 text-sm text-muted-foreground md:items-end">
           <dl className="flex flex-col gap-1 md:flex-row md:flex-wrap md:justify-end md:gap-x-6">
@@ -34,15 +34,7 @@ export function SiteFooter({ locale, labels }: SiteFooterProps) {
               </div>
             ))}
           </dl>
-          <p className="flex flex-wrap items-center gap-x-6">
-            <span>© 2026 {company.name}</span>
-            <a
-              href={company.githubUrl}
-              className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
-            >
-              {labels.githubLabel}
-            </a>
-          </p>
+          <p>© 2026 {company.name}</p>
         </div>
       </div>
     </footer>
