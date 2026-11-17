@@ -73,7 +73,7 @@ describe("buildRobots", () => {
 });
 
 describe("organizationJsonLd", () => {
-  it("describes the organization with a logo and GitHub profile", () => {
+  it("describes the organization with a logo and no profile links", () => {
     expect(organizationJsonLd()).toEqual({
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -81,12 +81,12 @@ describe("organizationJsonLd", () => {
       alternateName: "가람",
       url: origin,
       logo: `${origin}/logo.svg`,
-      sameAs: ["https://github.com/garamsh"],
     });
   });
 
-  it("carries no address or phone", () => {
+  it("carries no address, phone or sameAs", () => {
     const keys = Object.keys(organizationJsonLd());
+    expect(keys).not.toContain("sameAs");
     expect(keys).not.toContain("address");
     expect(keys).not.toContain("telephone");
   });

@@ -64,6 +64,5 @@ export const ko: Dictionary = {
     tradeNameLabel: "상호",
     representativeLabel: "대표",
     registrationNumberLabel: "사업자등록번호",
-    githubLabel: "GitHub",
   },
 };
